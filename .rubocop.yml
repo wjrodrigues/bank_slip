@@ -1,0 +1,11 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+
+Style/Documentation:
+  Enabled: false
