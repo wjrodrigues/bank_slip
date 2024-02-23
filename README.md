@@ -1,24 +1,13 @@
-# README
+# Bank Slip Management
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Management of bank slips with integration with external services
 
-Things you may want to cover:
 
-* Ruby version
+## Start app
+Start full application
 
-* System dependencies
+```bash
+make start
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Access: http://localhost:8080/
