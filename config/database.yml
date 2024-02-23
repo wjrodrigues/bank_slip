@@ -18,24 +18,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV.fetch("DB_USER", nil) %>
+  password: <%= ENV.fetch("DB_PASSWORD", nil) %>
+  host: <%= ENV.fetch("DB_HOST", nil) %>
 
 development:
   <<: *default
-  database: bank_slip_development
-
-  # The specified database role being used to connect to PostgreSQL.
-  # To create additional roles in PostgreSQL see `$ createuser --help`.
-  # When left blank, PostgreSQL will use the default role. This is
-  # the same name as the operating system user running Rails.
-  #username: bank_slip
-
-  # The password associated with the PostgreSQL role (username).
-  #password:
-
-  # Connect on a TCP socket. Omitted by default since the client uses a
-  # domain socket that doesn't need configuration. Windows does not have
-  # domain sockets, so uncomment these lines.
-  #host: localhost
+  database: <%= ENV.fetch("DB_NAME", nil) %>
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -80,5 +69,3 @@ test:
 production:
   <<: *default
   database: bank_slip_production
-  username: bank_slip
-  password: <%= ENV["BANK_SLIP_DATABASE_PASSWORD"] %>
