@@ -52,6 +52,9 @@ group :development, :test do
 
   # https://github.com/rubocop/rubocop
   gem 'rubocop', '~> 1.60', '>= 1.60.2'
+
+  # https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
 end
 
 group :development do
