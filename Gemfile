@@ -70,6 +70,9 @@ group :development, :test do
 
   # https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+
+  # https://github.com/faker-ruby/faker
+  gem 'faker', '~> 3.2', '>= 3.2.3'
 end
 
 group :development do
