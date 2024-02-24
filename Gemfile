@@ -55,6 +55,15 @@ group :development, :test do
 
   # https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
+
+  # https://github.com/vcr/vcr
+  gem 'vcr', '~> 6.2'
+
+  # https://github.com/bblimke/webmock
+  gem 'webmock', '~> 3.22'
+
+  # https://github.com/simplecov-ruby/simplecov
+  gem 'simplecov', '~> 0.22.0'
 end
 
 group :development do
