@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'HTTP::Native' do
+RSpec.describe Http::Native do
   describe '#get' do
     context 'when the request was made successfully' do
       it 'returns json structure' do
