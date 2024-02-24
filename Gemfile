@@ -64,6 +64,12 @@ group :development, :test do
 
   # https://github.com/simplecov-ruby/simplecov
   gem 'simplecov', '~> 0.22.0'
+
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 6.1'
+
+  # https://github.com/thoughtbot/factory_bot
+  gem 'factory_bot', '~> 6.4', '>= 6.4.6'
 end
 
 group :development do
