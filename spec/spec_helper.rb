@@ -124,4 +124,4 @@ RSpec.configure do |config|
   require 'factory_bot'
   config.include FactoryBot::Syntax::Methods
 end
-# rubocop: enalbe Metrics/BlockLength
+# rubocop: enable Metrics/BlockLength
