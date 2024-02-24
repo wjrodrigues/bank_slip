@@ -38,6 +38,7 @@ services:
       POSTGRES_DB: $DB_NAME
     volumes:
       - /tmp/bank_slip_db:/var/lib/postgresql/data
+      - ./build/postgresql:/docker-entrypoint-initdb.d
     networks:
       - bank_slip_app
 
