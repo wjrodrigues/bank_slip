@@ -15,6 +15,8 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'vcr'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -91,4 +93,15 @@ RSpec.configure do |config|
   #   # test failures related to randomization by passing the same `--seed` value
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
+
+  VCR.configure do |c|
+    c.cassette_library_dir = 'spec/fixtures/cassettes'
+    c.hook_into :webmock
+  end
+
+  unless ENV['cov'].nil?
+    require 'simplecov'
+
+    SimpleCov.start 'rails'
+  end
 end
