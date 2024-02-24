@@ -15,8 +15,6 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'vcr'
-
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -94,14 +92,30 @@ RSpec.configure do |config|
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
 
+  # https://github.com/vcr/vcr
+  require 'vcr'
+
   VCR.configure do |c|
     c.cassette_library_dir = 'spec/fixtures/cassettes'
     c.hook_into :webmock
   end
 
+  # https://github.com/simplecov-ruby/simplecov
   unless ENV['coverage'].nil?
     require 'simplecov'
 
     SimpleCov.start 'rails'
+  end
+
+  # https://github.com/thoughtbot/shoulda-matchers
+  require 'shoulda/matchers'
+
+  Shoulda::Matchers.configure do |c|
+    c.integrate do |with|
+      with.test_framework :rspec
+
+      require 'active_model'
+      with.library :active_model
+    end
   end
 end
