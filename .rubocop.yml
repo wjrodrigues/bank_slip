@@ -9,3 +9,9 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude: ["**/*_spec.rb"]
+
+Lint/ConstantDefinitionInBlock:
+  Exclude: ["**/*_spec.rb"]
