@@ -15,6 +15,7 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+# rubocop: disable Metrics/BlockLength
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -118,4 +119,9 @@ RSpec.configure do |config|
       with.library :active_model
     end
   end
+
+  # https://github.com/thoughtbot/factory_bot/
+  require 'factory_bot'
+  config.include FactoryBot::Syntax::Methods
 end
+# rubocop: enalbe Metrics/BlockLength
