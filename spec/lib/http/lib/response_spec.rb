@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Http::Response do
+RSpec.describe Http::Lib::Response do
   describe '#json!' do
     context 'when body is JSON' do
       it 'returns json formatted' do
