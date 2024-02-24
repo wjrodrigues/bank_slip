@@ -61,6 +61,9 @@ group :development, :test do
 
   # https://github.com/bblimke/webmock
   gem 'webmock', '~> 3.22'
+
+  # https://github.com/simplecov-ruby/simplecov
+  gem 'simplecov', '~> 0.22.0'
 end
 
 group :development do
