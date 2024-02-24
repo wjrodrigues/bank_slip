@@ -68,8 +68,8 @@ group :development, :test do
   # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 6.1'
 
-  # https://github.com/thoughtbot/factory_bot
-  gem 'factory_bot', '~> 6.4', '>= 6.4.6'
+  # https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
 end
 
 group :development do
