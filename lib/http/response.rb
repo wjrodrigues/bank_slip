@@ -6,7 +6,7 @@ module Http
 
     private :body=, :status=
 
-    def initialize(body:, status: 0)
+    def initialize(body:, status: '')
       [body, status] => [String, String]
 
       self.body = body

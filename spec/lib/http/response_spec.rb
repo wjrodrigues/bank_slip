@@ -11,7 +11,7 @@ RSpec.describe Http::Response do
         response = described_class.new(body: raw)
 
         expect(response.json!).to eq(JSON.parse(raw))
-        expect(response.status).to be_zero
+        expect(response.status).to be_empty
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe Http::Response do
         response = described_class.new(body: raw)
 
         expect(response.raw).to eq(raw)
-        expect(response.status).to be_zero
+        expect(response.status).to be_empty
       end
     end
   end
