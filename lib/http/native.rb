@@ -14,10 +14,10 @@ module Http
       Response.new(body: res.body, status: res.code)
     end
 
-    def post(url, params: {}, header: HEADER[:json])
-      [url, params, header] => [URI, Hash, Hash]
+    def post(url, payload: {}, header: HEADER[:json])
+      [url, payload, header] => [URI, Hash, Hash]
 
-      res = Net::HTTP.post(url, {}.to_json, header)
+      res = Net::HTTP.post(url, payload.to_json, header)
 
       Response.new(body: res.body, status: res.code)
     end
