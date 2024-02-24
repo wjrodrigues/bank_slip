@@ -99,7 +99,7 @@ RSpec.configure do |config|
     c.hook_into :webmock
   end
 
-  unless ENV['cov'].nil?
+  unless ENV['coverage'].nil?
     require 'simplecov'
 
     SimpleCov.start 'rails'
