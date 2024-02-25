@@ -8,6 +8,9 @@ FactoryBot.define do
     gateway { 'kobana' }
     expire_at { 3.days.from_now }
     amount { 30_000 }
+    barcode { Faker::Barcode.ean }
+    bank { 'BB' }
+    external_id { Faker::Number.number(digits: 5) }
 
     trait :overdue do
       status { 'overdue' }
