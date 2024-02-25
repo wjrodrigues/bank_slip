@@ -116,6 +116,8 @@ RSpec.configure do |config|
       with.test_framework :rspec
 
       require 'active_model'
+
+      with.library :active_record
       with.library :active_model
     end
   end
