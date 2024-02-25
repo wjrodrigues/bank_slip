@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_24_190425) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_25_205916) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -24,7 +24,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_190425) do
     t.uuid "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "barcode", null: false
+    t.string "external_id", null: false
+    t.string "bank"
+    t.index ["barcode"], name: "index_bankslips_on_barcode", unique: true
     t.index ["customer_id"], name: "index_bankslips_on_customer_id"
+    t.index ["external_id"], name: "index_bankslips_on_external_id", unique: true
     t.check_constraint "gateway::text = 'kobana'::text"
     t.check_constraint "status::text = ANY (ARRAY['opened'::text, 'overdue'::text, 'canceled'::text, 'expired'::text])"
   end
