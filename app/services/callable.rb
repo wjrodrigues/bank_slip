@@ -12,4 +12,6 @@ class Callable
   def initialize(...)
     self.response = ServiceResponse.new
   end
+
+  def assign!(keys, params) = keys.each { |key| send("#{key}=", params[key]) }
 end
