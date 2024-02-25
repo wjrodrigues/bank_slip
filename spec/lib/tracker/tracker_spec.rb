@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Tracker::Track do
+RSpec.describe Tracker::Track, :lib do
   describe '#notify' do
     context 'when has optional data' do
       it 'calls method' do
