@@ -2,10 +2,10 @@
 
 FactoryBot.define do
   factory :bankslip_record, class: 'Bankslip::Record' do
-    customer
+    customer factory: :customer_record
 
     status { 'opened' }
-    gateway { kobana }
+    gateway { 'kobana' }
     expire_at { 3.days.from_now }
     amount { 30_000 }
 

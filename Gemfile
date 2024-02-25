@@ -73,6 +73,9 @@ group :development, :test do
 
   # https://github.com/faker-ruby/faker
   gem 'faker', '~> 3.2', '>= 3.2.3'
+
+  # https://github.com/travisjeffery/timecop
+  gem 'timecop', '~> 0.9.8'
 end
 
 group :development do

@@ -125,5 +125,13 @@ RSpec.configure do |config|
   # https://github.com/thoughtbot/factory_bot/
   require 'factory_bot'
   config.include FactoryBot::Syntax::Methods
+
+  # https://github.com/travisjeffery/timecop
+  # require 'timecop'
+  config.before do |example|
+    Timecop.freeze('2023-02-22T8:00:00-03:00') if example.metadata[:timecop]
+  end
+
+  config.after { Timecop.return }
 end
 # rubocop: enable Metrics/BlockLength
