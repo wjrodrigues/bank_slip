@@ -46,5 +46,19 @@ RSpec.describe Customer::Creator, :service do
         expect(response.result).to eq(customer)
       end
     end
+
+    context 'when raise error' do
+      it 'calls Tracker::Track#notify' do
+        record = double('Customer::Record')
+
+        expect(record).to receive(:find_by).and_raise(StandardError)
+        expect(Tracker::Track).to receive(:notify).with(StandardError)
+
+        response = described_class.call(attributes_for(:customer_record), record:)
+
+        expect(response).not_to be_ok
+        expect(response.error).to eq('invalid data')
+      end
+    end
   end
 end

@@ -28,7 +28,9 @@ module Customer
 
       save!(customer)
     rescue StandardError => e
-      binding.irb
+      Tracker::Track.notify(e)
+
+      response.add_error('invalid data')
     end
 
     private
