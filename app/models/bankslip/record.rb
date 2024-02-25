@@ -7,6 +7,9 @@ module Bankslip
     enum :status, %w[opened overdue canceled expired].index_by(&:itself), default: 'opened'
     enum :gateway, %w[kobana].index_by(&:itself), default: 'kobana'
 
+    validates :bank, presence: true, allow_nil: true
+    validates :external_id, presence: true, uniqueness: { case_sensitive: false }
+    validates :barcode, presence: true, uniqueness: { case_sensitive: false }
     validates :expire_at, comparison: { greater_than: DateTime.now.end_of_day }
     validates :amount, comparison: { greater_than: 0 }
 
