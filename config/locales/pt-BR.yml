@@ -1,0 +1,8 @@
+pt-BR:
+
+  # Money
+  number:
+    currency:
+      format:
+        delimiter: "."
+        separator: ","
