@@ -76,6 +76,9 @@ group :development, :test do
 
   # https://github.com/travisjeffery/timecop
   gem 'timecop', '~> 0.9.8'
+
+  # https://github.com/bkeepers/dotenv
+  gem 'dotenv', '~> 3.0', '>= 3.0.2'
 end
 
 group :development do
