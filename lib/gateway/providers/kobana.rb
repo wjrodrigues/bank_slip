@@ -14,9 +14,9 @@ module Gateway
 
       def create(params) = http_client.post(URL['bank_billets'], payload: payload(params), header:)
 
-      def get(id)
-        http_client.get(URL["bank_billets/#{id}"], header:)
-      end
+      def get(id) = http_client.get(URL["bank_billets/#{id}"], header:)
+
+      def cancel(id) = http_client.put(URL["bank_billets/#{id}/cancel"], header:)
 
       private
 
