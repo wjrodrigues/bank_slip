@@ -13,7 +13,10 @@ module Gateway
       end
 
       def create(params) = http_client.post(URL['bank_billets'], payload: payload(params), header:)
-      def get(id) = http_client.post(URL["bank_billets/#{id}"], header:)
+
+      def get(id)
+        http_client.get(URL["bank_billets/#{id}"], header:)
+      end
 
       private
 
