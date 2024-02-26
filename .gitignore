@@ -36,3 +36,7 @@
 
 # Coverage
 coverage
+
+# Front
+/app/assets/builds/*
+!/app/assets/builds/.keep
