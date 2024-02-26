@@ -4,8 +4,8 @@ module Http
   class Client
     PARSE_URL = ->(url) { URI(url) }
 
-    def self.get(url, client: Lib::Native)
-      resp = client.new.get(PARSE_URL[url])
+    def self.get(url, client: Lib::Native, header: {})
+      resp = client.new.get(PARSE_URL[url], header:)
 
       [resp] => [Http::Lib::Response]
 
@@ -14,6 +14,14 @@ module Http
 
     def self.post(url, client: Lib::Native, payload: {}, header: {})
       resp = client.new.post(PARSE_URL[url], payload:, header:)
+
+      [resp] => [Http::Lib::Response]
+
+      resp
+    end
+
+    def self.put(url, client: Lib::Native, payload: {}, header: {})
+      resp = client.new.put(PARSE_URL[url], payload:, header:)
 
       [resp] => [Http::Lib::Response]
 

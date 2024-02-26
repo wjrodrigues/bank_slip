@@ -29,3 +29,10 @@
 
 en:
   hello: "Hello world"
+
+  # Money
+  number:
+    currency:
+      format:
+        delimiter: ","
+        separator: "."

@@ -43,6 +43,9 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# https://github.com/RubyMoney/money
+gem 'money', '~> 6.16'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -76,6 +79,9 @@ group :development, :test do
 
   # https://github.com/travisjeffery/timecop
   gem 'timecop', '~> 0.9.8'
+
+  # https://github.com/bkeepers/dotenv
+  gem 'dotenv', '~> 3.0', '>= 3.0.2'
 end
 
 group :development do
