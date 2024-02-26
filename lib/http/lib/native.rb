@@ -7,10 +7,10 @@ module Http
         json: { 'Content-Type': 'application/json' }
       }.freeze
 
-      def get(url)
+      def get(url, header: {})
         [url] => [URI]
 
-        res = Net::HTTP.get_response(url)
+        res = Net::HTTP.get_response(url, header)
 
         Response.new(body: res.body, status: res.code)
       end

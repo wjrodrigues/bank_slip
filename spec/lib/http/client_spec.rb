@@ -11,7 +11,7 @@ RSpec.describe Http::Client do
         expect(client).to receive(:new).and_return(client)
         expect(client)
           .to receive(:get)
-          .with(URI('http://any.com'))
+          .with(URI('http://any.com'), { header: {} })
           .and_return(Http::Lib::Response.new(body: '{}'))
 
         described_class.get('http://any.com', client:)
