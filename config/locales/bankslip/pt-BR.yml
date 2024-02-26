@@ -1,0 +1,16 @@
+pt-BR:
+  bankslip:
+    status:
+      opened: Aberto
+      overdue: Atrasado
+      canceled: Cancelado
+      expired: Vencido
+
+    action:
+      cancel: Cancelar
+
+    label:
+      name: Titular
+      state: Status
+      amount: Valor
+      expire: Vencimento
