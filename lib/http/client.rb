@@ -19,5 +19,13 @@ module Http
 
       resp
     end
+
+    def self.put(url, client: Lib::Native, payload: {}, header: {})
+      resp = client.new.put(PARSE_URL[url], payload:, header:)
+
+      [resp] => [Http::Lib::Response]
+
+      resp
+    end
   end
 end
