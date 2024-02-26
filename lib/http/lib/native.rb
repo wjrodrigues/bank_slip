@@ -32,9 +32,9 @@ module Http
 
         header.each_key { |key| req[key] = header[key] }
 
-        res = Net::HTTP.start(url.hostname) { |http| http.request(req) }
+        res = Net::HTTP.start(url.hostname, use_ssl: url.scheme == 'https') { |http| http.request(req) }
 
-        Response.new(body: res.body, status: res.code)
+        Response.new(body: res.body.to_s, status: res.code)
       end
     end
   end
