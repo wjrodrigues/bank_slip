@@ -22,6 +22,20 @@ module Http
 
         Response.new(body: res.body, status: res.code)
       end
+
+      def put(url, payload: {}, header: HEADER[:json])
+        [url, payload, header] => [URI, Hash, Hash]
+
+        req = Net::HTTP::Put.new(url)
+
+        req.body = payload.to_json
+
+        header.each_key { |key| req[key] = header[key] }
+
+        res = Net::HTTP.start(url.hostname) { |http| http.request(req) }
+
+        Response.new(body: res.body, status: res.code)
+      end
     end
   end
 end

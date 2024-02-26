@@ -34,4 +34,20 @@ RSpec.describe Http::Lib::Native do
       end
     end
   end
+
+  describe '#put' do
+    context 'when the request was made successfully' do
+      it 'returns json structure' do
+        VCR.use_cassette('lib/http/native_put') do
+          url = URI('https://httpbin.org/anything')
+
+          native = described_class.new
+          response = native.put(url)
+
+          expect(response).to be_instance_of(Http::Lib::Response)
+          expect(response.status).to eq('200')
+        end
+      end
+    end
+  end
 end
