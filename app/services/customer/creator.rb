@@ -6,7 +6,6 @@ module Customer
 
     ATTRS = %i[name document state city zipcode address neighborhood].freeze
 
-    private :name=, :document=, :state=, :city=, :zipcode=, :address=, :neighborhood=
     private_constant :ATTRS
 
     def initialize(params, record: Customer::Record)

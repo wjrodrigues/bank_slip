@@ -2,11 +2,10 @@
 
 module Bankslip
   class Creator < Callable
-    attr_accessor :customer, :record, :status, :expire_at, :amount, :gateway, :external_id, :bank, :barcode
+    attr_accessor :customer, :record, :expire_at, :amount, :gateway, :external_id, :bank, :barcode
 
-    ATTRS = %i[status expire_at amount gateway external_id bank barcode].freeze
+    ATTRS = %i[expire_at amount gateway external_id bank barcode].freeze
 
-    private :customer=, :record=, :status=, :expire_at=, :amount=, :gateway=, :external_id=, :bank=, :barcode=
     private_constant :ATTRS
 
     def initialize(params, customer:, record: Bankslip::Record)
@@ -34,7 +33,7 @@ module Bankslip
 
     private
 
-    def new_bankslip = record.new(customer:, status:, expire_at:, amount:, gateway:, external_id:, bank:, barcode:)
+    def new_bankslip = record.new(customer:, expire_at:, amount:, gateway:, external_id:, bank:, barcode:)
 
     def save!(bankslip)
       bankslip.save!
