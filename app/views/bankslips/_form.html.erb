@@ -1,0 +1,69 @@
+<%= form_with url: bankslips_path, method: :post do |form| %>
+<div class='bg-white rounded-md m-2 p-2 shadow'>
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "amount", label: "amount", type: "number", required: false, placeholder: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "expire_at", label: "expire", type: "date", required: false, placeholder: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "document", label: "document", type: "number", required: false, placeholder: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "name", label: "name", type: "text", required: false, placeholder: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "zipcode", label: "zipcode", type: "number", required: false, placeholder: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "state", label: "state", type: "text", required: false, placeholder: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "city", label: "city", type: "text", required: false, placeholder: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "neighborhood", label: "neighborhood", type: "text", required: false, placeholder: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "address", label: "address", type: "text", required: false, placeholder: "" }
+      %>
+    </div>
+  </div>
+
+  <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+</div>
+<% end %>
