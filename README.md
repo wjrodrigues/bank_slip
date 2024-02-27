@@ -10,6 +10,11 @@ Start full application
 make start
 ```
 
+Check if the container is ready
+```bash
+docker logs bank_slip_app -f
+```
+
 Access: http://localhost:8080/
 
 ## Update environment
