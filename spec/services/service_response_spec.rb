@@ -48,6 +48,14 @@ RSpec.describe ServiceResponse, :services do
         expect(response.add_error(err)).to be_instance_of(described_class)
         expect(response.error).to eq(err)
       end
+
+      it 'returns translated text' do
+        response = described_class.new
+
+        response.add_error('no_records', translate: true)
+
+        expect(response.error).to eq('sem registros')
+      end
     end
   end
 end
