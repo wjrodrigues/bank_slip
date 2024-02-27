@@ -1,3 +1,4 @@
 # frozen_string_literal: true
 
-require_relative 'seeds/bankslips' unless Rails.env.test?
+return if Rails.env.development?
+require_relative 'seeds/bankslips'
