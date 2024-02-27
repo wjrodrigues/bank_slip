@@ -38,7 +38,7 @@ module Bankslip
 
     def format_data!
       self.expire_at = Date.parse(expire_at) if expire_at.is_a?(String)
-      self.amount = amount.gsub(Constants::WITHOUT_NUMBER, '').to_i if amount.is_a?(String)
+      self.amount = amount.gsub(Regex::WITHOUT_NUMBER, '').to_i if amount.is_a?(String)
     end
 
     def error_msg(key) = response.add_error("bankslip.service.#{key}", translate: true)
