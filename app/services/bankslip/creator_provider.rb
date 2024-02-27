@@ -21,7 +21,7 @@ module Bankslip
 
       return response.add_error('invalid data') if result.status.to_i != HTTP_STATUS_CREATED
 
-      response
+      response.add_result(result.json!)
     rescue StandardError => e
       Tracker::Track.notify(e)
 

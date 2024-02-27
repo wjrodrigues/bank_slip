@@ -14,11 +14,14 @@ RSpec.describe Bankslip::CreatorProvider, :service do
 
     context 'when provider is successfully' do
       it 'calls provider and create' do
-        result = Struct.new(:status).new(status: '200')
+        result = Struct.new(:status, :json!).new(status: '201', json!: JSON.parse('{"name":"any"}'))
 
         expect(provider).to receive(:create).with(params).and_return(result)
 
-        described_class.call(params, provider:)
+        response = described_class.call(params, provider:)
+
+        expect(response).to be_ok
+        expect(response.result).to eq({ 'name' => 'any' })
       end
     end
 
