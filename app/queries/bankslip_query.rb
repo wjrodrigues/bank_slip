@@ -4,8 +4,9 @@ class BankslipQuery
   attr_accessor :bankslips, :columns
   private :bankslips=, :columns=
 
-  def initialize(columns: '*', bankslips: Bankslip::Record.all)
-    self.bankslips = bankslips.select(columns).order(:expire_at)
+  def initialize(columns: '*', includes: nil, bankslips: Bankslip::Record.all)
+    self.bankslips = bankslips.select(columns).order(expire_at: :asc)
+    self.bankslips = self.bankslips.includes(includes) unless includes.nil?
   end
 
   def all = bankslips
