@@ -7,15 +7,17 @@ RSpec.describe Bankslip::Creator, :service do
     context 'when all parameters are valid' do
       it 'creates bankslip' do
         customer = build(:customer_record)
+        params = attributes_for(:bankslip_record).merge(amount: 'R$ 300,00')
         response = nil
 
         VCR.use_cassette('lib/gateway/providers/kobana_create') do
-          response = described_class.call(attributes_for(:bankslip_record), customer:)
+          response = described_class.call(params, customer:)
         end
 
         expect(response).to be_instance_of(ServiceResponse)
         expect(response).to be_ok
         expect(response.result).to be_persisted
+        expect(response.result.amount).to eq(30_000)
       end
     end
 

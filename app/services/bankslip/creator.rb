@@ -15,8 +15,7 @@ module Bankslip
 
       assign!(ATTRS, params)
 
-      self.expire_at = Date.parse(expire_at) if expire_at.is_a?(String)
-      self.amount = amount.to_i if amount.is_a?(String)
+      format_data!
 
       super(params, customer:, record:)
     end
@@ -36,6 +35,11 @@ module Bankslip
     end
 
     private
+
+    def format_data!
+      self.expire_at = Date.parse(expire_at) if expire_at.is_a?(String)
+      self.amount = amount.gsub(/[^0-9]/, '').to_i if amount.is_a?(String)
+    end
 
     def error_msg(key) = response.add_error("bankslip.service.#{key}", translate: true)
 
