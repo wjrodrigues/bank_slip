@@ -9,11 +9,15 @@ module Gateway
     private_constant :PROVIDERS
     private_class_method :new
 
-    def self.get(id, provider: :kobana) = new.provider!(provider).get(id)
+    Response = ->(provider, response) { Struct.new(:provider, :response).new(provider:, response:) }
 
-    def self.create(params, provider: :kobana) = new.provider!(provider).create(params)
+    private_constant :Response
 
-    def self.cancel(id, provider: :kobana) = new.provider!(provider).cancel(id)
+    def self.get(id, provider: :kobana) = Response.call(provider, new.provider!(provider).get(id))
+
+    def self.create(params, provider: :kobana) = Response.call(provider, new.provider!(provider).create(params))
+
+    def self.cancel(id, provider: :kobana) = Response.call(provider, new.provider!(provider).cancel(id))
 
     def provider!(provider) = PROVIDERS[provider.to_sym].new
   end

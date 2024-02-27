@@ -10,8 +10,8 @@ class ServiceResponse
 
   def ok? = error.nil?
 
-  def add_error(err)
-    self.error = err
+  def add_error(err, translate: false)
+    self.error = translate ? I18n.t(err) : err
     self
   end
 

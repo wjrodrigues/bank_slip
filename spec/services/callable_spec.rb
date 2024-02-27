@@ -19,9 +19,10 @@ RSpec.describe Callable do
   describe '#call' do
     context 'when called' do
       it 'returns response' do
-        response = MockCallable.call
+        response = MockCallable.call({ 'name' => 'pedro' })
 
         expect(response).to be_instance_of(ServiceResponse)
+        expect(response.result).to eq({ name: 'pedro' })
       end
 
       it 'returns response with attr' do

@@ -13,5 +13,9 @@ class Callable
     self.response = ServiceResponse.new
   end
 
-  def assign!(keys, params) = keys.each { |key| send("#{key}=", params[key]) }
+  def assign!(keys, params)
+    params.deep_symbolize_keys! if params.is_a?(Hash)
+
+    keys.each { |key| send("#{key}=", params[key]) }
+  end
 end
