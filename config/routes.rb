@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :bankslips, only: :index
+  resources :bankslips, only: %i[index new create]
 end
