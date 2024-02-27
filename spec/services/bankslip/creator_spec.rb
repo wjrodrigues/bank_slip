@@ -16,7 +16,7 @@ RSpec.describe Bankslip::Creator, :service do
     end
 
     context 'when all parameters are invalid' do
-      it 'returns errors' do
+      it 'returns errors', locale: :en do
         response = described_class.call({}, customer: nil)
 
         expected = {
