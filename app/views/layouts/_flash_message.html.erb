@@ -1,0 +1,11 @@
+<%if flash[:error] %>
+<div class='bg-red-500 text-center text-white font-bold'>
+  <p><%= flash[:error] %></p>
+</div>
+<% end %>
+
+<%if flash[:success] %>
+<div class='bg-green-500 text-center text-white font-bold'>
+  <p><%= flash[:success] %></p>
+</div>
+<% end %>
