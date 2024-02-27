@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-require_relative 'seeds/bankslips'
+require_relative 'seeds/bankslips' unless ENV['test']
