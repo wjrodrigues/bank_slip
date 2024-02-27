@@ -1,8 +1,12 @@
 <div class='fixed top-0 w-full ml-2 mt-1'>
     <a href="<%= new_bankslip_path %>"
-       class="bg-green-500 rounded-full pl-2 pr-2 pt-1 pb-1 text-white text-lg"
-    >Novo</a>
+       class="bg-blue-500 rounded-full pl-2 pr-2 pt-1 pb-1 text-white text-lg"
+    >
+        <%= t('bankslip.form.new') %>
+    </a>
 </div>
+
+<%= render partial: 'layouts/flash_message' %>
 
 <div class="pt-8">
 <% @bankslips.each do |bankslip| %>

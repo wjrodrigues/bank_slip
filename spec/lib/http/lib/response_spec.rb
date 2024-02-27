@@ -17,7 +17,7 @@ RSpec.describe Http::Lib::Response do
 
     context 'when body is not JSON' do
       it 'throws JSON::ParserError' do
-        raw = ''
+        raw = '_'
 
         response = described_class.new(body: raw)
 

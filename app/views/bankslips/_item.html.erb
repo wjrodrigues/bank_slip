@@ -26,7 +26,18 @@
     </div>
 
     <div class="flex justify-end items-center">
-      <button class='rounded-full	bg-red-500 pl-2 pr-2 text-white'><%= t('bankslip.action.cancel') %></button>
+      <% if bankslip.canceled? %>
+        <button class='rounded-full	bg-gray-300 pl-2 pr-2 text-white' disabled>
+          <%= t('bankslip.action.cancel') %>
+        </button>
+      <% else %>
+        <%= button_to t('bankslip.action.cancel'),
+          { action: "destroy", id: bankslip.id },
+          method: :delete,
+          data: { confirm: t('bankslip.form.confirm_cancel') },
+          class:'rounded-full	bg-red-500 pl-2 pr-2 text-white'
+        %>
+      <% end %>
     </div>
   </div>
 </div>

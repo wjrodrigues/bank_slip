@@ -18,7 +18,7 @@ RSpec.describe Bankslip::Record, :model do
 
     it { should validate_comparison_of(:amount).is_greater_than(0) }
 
-    it { should validate_comparison_of(:expire_at).is_greater_than(DateTime.now.end_of_day) }
+    it { should validate_comparison_of(:expire_at).is_greater_than_or_equal_to(Date.today).on(:create) }
 
     it { should validate_presence_of(:bank).allow_nil }
 
