@@ -1,0 +1,27 @@
+<div class='bg-white rounded-md m-2 p-2 shadow'>
+  <div class="flex flex-row items-center">
+    <div class="basis-1/5">
+      <span class="text-xs block text-gray-500"><%= t('bankslip.label.name') %></span>
+      <span><%= bankslip.customer.name %></span>
+    </div>
+
+    <div class="basis-1/5">
+      <span class="text-xs block text-gray-500"><%= t('bankslip.label.status') %></span>
+      <span><%= t("bankslip.status.#{bankslip.status}") %></span>
+    </div>
+
+    <div class="basis-1/5">
+      <span class="text-xs block text-gray-500"><%= t('bankslip.label.amount') %></span>
+      <span><%= to_real(bankslip.amount) %></span>
+    </div>
+
+    <div class="basis-1/5">
+      <span class="text-xs block text-gray-500"><%= t('bankslip.label.expire') %></span>
+      <span><%= brl_date(bankslip.expire_at) %></span>
+    </div>
+
+    <div class="items-center">
+      <button class='rounded-full	bg-red-500 pl-2 pr-2 text-white'><%= t('bankslip.action.cancel') %></button>
+    </div>
+  </div>
+</div>

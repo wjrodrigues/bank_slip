@@ -14,3 +14,4 @@ pt-BR:
       state: Status
       amount: Valor
       expire: Vencimento
+      created_at: Criado em
