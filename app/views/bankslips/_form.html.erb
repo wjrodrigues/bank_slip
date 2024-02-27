@@ -16,7 +16,14 @@
 
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "expire_at", label: "expire", type: "date", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "expire_at",
+          label: "expire_at",
+          type: "date",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target=expireAt data-action=change->bankslip#validateDate"
+        }
       %>
     </div>
   </div>
@@ -38,13 +45,27 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "zipcode", label: "zipcode", type: "number", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "zipcode",
+          label: "zipcode",
+          type: "number",
+          required: true,
+          placeholder: "",
+          data: "data-action=keyup->bankslip#findZipcode"
+        }
       %>
     </div>
 
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "state", label: "state", type: "text", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "state",
+          label: "state",
+          type: "text",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target=state data-action=keyup->bankslip#limitState"
+        }
       %>
     </div>
   </div>
@@ -52,13 +73,27 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "city", label: "city", type: "text", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "city",
+          label: "city",
+          type: "text",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target=city"
+        }
       %>
     </div>
 
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "neighborhood", label: "neighborhood", type: "text", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "neighborhood",
+          label: "neighborhood",
+          type: "text",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target=neighborhood"
+        }
       %>
     </div>
   </div>
@@ -66,7 +101,14 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "address", label: "address", type: "text", required: true, placeholder: "", data: "" }
+        locals: {
+          name: "address",
+          label: "address",
+          type: "text",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target=address"
+        }
       %>
     </div>
   </div>
