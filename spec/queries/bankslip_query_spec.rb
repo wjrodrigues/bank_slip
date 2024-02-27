@@ -6,9 +6,12 @@ RSpec.describe BankslipQuery, :queries do
   describe '#all' do
     context 'when exists records' do
       it 'returns records' do
-        bankslips = create_list(:bankslip_record, 2)
+        create_list(:bankslip_record, 2)
 
-        expect(described_class.new.all).to eq(bankslips)
+        expected = Bankslip::Record.order(created_at: :desc)
+        response = described_class.new.all
+
+        expect(response.pluck(:id)).to eq(expected.pluck(:id))
         expect(Bankslip::Record.count).to eq(2)
       end
     end

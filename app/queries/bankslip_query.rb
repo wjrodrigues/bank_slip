@@ -5,7 +5,7 @@ class BankslipQuery
   private :bankslips=, :columns=
 
   def initialize(columns: '*', includes: nil, bankslips: Bankslip::Record.all)
-    self.bankslips = bankslips.select(columns).order(expire_at: :asc)
+    self.bankslips = bankslips.select(columns).order(created_at: :desc)
     self.bankslips = self.bankslips.includes(includes) unless includes.nil?
   end
 
