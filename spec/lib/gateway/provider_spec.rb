@@ -10,7 +10,10 @@ RSpec.describe Gateway::Provider do
 
         expect_any_instance_of(Gateway::Providers::Kobana).to receive(:create).with(params)
 
-        described_class.create(params)
+        response = described_class.create(params)
+
+        expect(response.provider).to eq(:kobana)
+        expect(response.response).to be_nil
       end
     end
   end
@@ -22,7 +25,10 @@ RSpec.describe Gateway::Provider do
 
         expect_any_instance_of(Gateway::Providers::Kobana).to receive(:get).with(id)
 
-        described_class.get(id)
+        response = described_class.get(id)
+
+        expect(response.provider).to eq(:kobana)
+        expect(response.response).to be_nil
       end
     end
   end
@@ -34,7 +40,10 @@ RSpec.describe Gateway::Provider do
 
         expect_any_instance_of(Gateway::Providers::Kobana).to receive(:cancel).with(id)
 
-        described_class.cancel(id)
+        response = described_class.cancel(id)
+
+        expect(response.provider).to eq(:kobana)
+        expect(response.response).to be_nil
       end
     end
   end
