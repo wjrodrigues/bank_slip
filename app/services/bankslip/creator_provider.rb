@@ -2,10 +2,9 @@
 
 module Bankslip
   class CreatorProvider < Callable
-    attr_accessor :provider, :expire_at, :amount, :gateway, :bank, :barcode, :name, :document, :state,
-                  :city, :zipcode, :address, :neighborhood
+    attr_accessor :provider, :expire_at, :amount, :name, :document, :state, :city, :zipcode, :address, :neighborhood
 
-    ATTRS = %i[expire_at amount gateway bank barcode name document state city zipcode address neighborhood].freeze
+    ATTRS = %i[expire_at amount name document state city zipcode address neighborhood].freeze
     HTTP_STATUS_CREATED = 201
     private_constant :ATTRS, :HTTP_STATUS_CREATED
 
@@ -18,7 +17,7 @@ module Bankslip
     end
 
     def call
-      result = provider.create(params)
+      result = provider.create(attributes)
 
       return response.add_error('invalid data') if result.status.to_i != HTTP_STATUS_CREATED
 
@@ -31,11 +30,8 @@ module Bankslip
 
     private
 
-    def params
-      {
-        expire_at:, amount:, gateway:, bank:, barcode:, name:, document:, state:, city:, zipcode:, address:,
-        neighborhood:
-      }
+    def attributes
+      { expire_at:, amount:, name:, document:, state:, city:, zipcode:, address:, neighborhood: }
     end
   end
 end

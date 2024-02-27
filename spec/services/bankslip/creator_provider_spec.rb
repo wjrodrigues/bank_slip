@@ -7,8 +7,7 @@ RSpec.describe Bankslip::CreatorProvider, :service do
     let(:params) do
       attributes_for(:customer_record)
         .merge(attributes_for(:bankslip_record))
-        .slice(:expire_at, :amount, :gateway, :bank, :barcode, :name, :document, :state, :city, :zipcode, :address,
-               :neighborhood)
+        .slice(:expire_at, :amount, :name, :document, :state, :city, :zipcode, :address, :neighborhood)
     end
 
     let(:provider) { double('Gateway::Provider') }
