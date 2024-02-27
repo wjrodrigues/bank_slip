@@ -22,7 +22,16 @@ class BankslipsController < ApplicationController
 
     return flash_and_redirect!(bankslip.error, :error) unless bankslip.ok?
 
-    flash_and_redirect!(I18n.t('bankslip.form.success_to_success'), :success)
+    flash_and_redirect!(I18n.t('bankslip.form.success_save'), :success)
+  end
+
+  def destroy
+    page = bankslip_path
+    result = Bankslip::Canceller.call({ id: params[:id] })
+
+    return flash_and_redirect!(result.error, :error, page) unless result.ok?
+
+    flash_and_redirect!(I18n.t('bankslip.form.success_cancel'), :success, page)
   end
 
   private

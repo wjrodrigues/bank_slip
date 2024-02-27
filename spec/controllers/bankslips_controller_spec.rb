@@ -78,4 +78,28 @@ RSpec.describe BankslipsController do
       end
     end
   end
+
+  describe '#destroy' do
+    context 'when the request was made successfully' do
+      it 'cancels bankslip' do
+        result = Struct.new(:ok?).new(ok?: true)
+
+        expect_any_instance_of(Bankslip::Canceller).to receive(:call).and_return(result)
+
+        delete :destroy, params: { id: 1 }
+
+        expect(subject.request.flash[:success]).to eq('Cancelado com sucesso')
+        expect(response).to redirect_to(bankslip_path)
+      end
+    end
+
+    context 'when the request returns error' do
+      it 'cancels bankslip' do
+        delete :destroy, params: { id: 1 }
+
+        expect(subject.request.flash[:error]).to eq('Registro não encontrado')
+        expect(response).to redirect_to(bankslip_path)
+      end
+    end
+  end
 end
