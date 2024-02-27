@@ -3,27 +3,20 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "amount", label: "amount", type: "number", required: true, placeholder: "" }
+        locals: {
+          name: "amount",
+          label: "amount",
+          type: "text",
+          required: true,
+          placeholder: "",
+          data: "data-bankslip-target='value' data-action=keyup->bankslip#maskMoneyBRL"
+        }
       %>
     </div>
 
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "expire_at", label: "expire", type: "date", required: true, placeholder: "" }
-      %>
-    </div>
-  </div>
-
-  <div class="grid md:grid-cols-2 md:gap-6">
-    <div class="relative z-0 w-full mb-5 group">
-      <%= render partial: 'bankslips/form/input',
-        locals: { name: "document", label: "document", type: "number", required: true, placeholder: "" }
-      %>
-    </div>
-
-    <div class="relative z-0 w-full mb-5 group">
-      <%= render partial: 'bankslips/form/input',
-        locals: { name: "name", label: "name", type: "text", required: true, placeholder: "" }
+        locals: { name: "expire_at", label: "expire", type: "date", required: true, placeholder: "", data: "" }
       %>
     </div>
   </div>
@@ -31,27 +24,13 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "zipcode", label: "zipcode", type: "number", required: true, placeholder: "" }
+        locals: { name: "document", label: "document", type: "number", required: true, placeholder: "", data: "" }
       %>
     </div>
 
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "state", label: "state", type: "text", required: true, placeholder: "" }
-      %>
-    </div>
-  </div>
-
-  <div class="grid md:grid-cols-2 md:gap-6">
-    <div class="relative z-0 w-full mb-5 group">
-      <%= render partial: 'bankslips/form/input',
-        locals: { name: "city", label: "city", type: "text", required: true, placeholder: "" }
-      %>
-    </div>
-
-    <div class="relative z-0 w-full mb-5 group">
-      <%= render partial: 'bankslips/form/input',
-        locals: { name: "neighborhood", label: "neighborhood", type: "text", required: true, placeholder: "" }
+        locals: { name: "name", label: "name", type: "text", required: true, placeholder: "", data: "" }
       %>
     </div>
   </div>
@@ -59,7 +38,35 @@
   <div class="grid md:grid-cols-2 md:gap-6">
     <div class="relative z-0 w-full mb-5 group">
       <%= render partial: 'bankslips/form/input',
-        locals: { name: "address", label: "address", type: "text", required: true, placeholder: "" }
+        locals: { name: "zipcode", label: "zipcode", type: "number", required: true, placeholder: "", data: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "state", label: "state", type: "text", required: true, placeholder: "", data: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "city", label: "city", type: "text", required: true, placeholder: "", data: "" }
+      %>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "neighborhood", label: "neighborhood", type: "text", required: true, placeholder: "", data: "" }
+      %>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 md:gap-6">
+    <div class="relative z-0 w-full mb-5 group">
+      <%= render partial: 'bankslips/form/input',
+        locals: { name: "address", label: "address", type: "text", required: true, placeholder: "", data: "" }
       %>
     </div>
   </div>
