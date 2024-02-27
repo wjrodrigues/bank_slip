@@ -11,7 +11,25 @@ pt-BR:
 
     label:
       name: Titular
+      document: CPF/CNPJ
       state: Status
       amount: Valor
       expire: Vencimento
       created_at: Criado em
+      zipcode: CEP
+      city: Cidade
+      state: Estado
+      neighborhood: Bairro
+      address: Rua/Via/Av.
+
+    form:
+      success_to_success: Salvo com sucesso
+      invalid_customer: Dados do cliente inválidos
+
+    service:
+      unavailable_provider: Provedor indisponível
+      already_exists: Já cadastrado
+      invalid_data: Dados inválidos
+      invalid_expire_at: Data vencimento inválida
+      invalid_amount: Valor inválido
+      invalid_customer: Dados do cliente inválidos
