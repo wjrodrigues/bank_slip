@@ -14,7 +14,11 @@ module Http
         self.status = status
       end
 
-      def json! = JSON.parse(body)
+      def json!
+        return JSON.parse(body) if body.present?
+
+        {}
+      end
 
       def raw = body
     end
