@@ -6,3 +6,6 @@ pt-BR:
       format:
         delimiter: "."
         separator: ","
+
+# Generic
+  no_records: sem registros
