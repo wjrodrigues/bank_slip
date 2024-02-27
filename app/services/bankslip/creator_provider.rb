@@ -19,9 +19,9 @@ module Bankslip
     def call
       result = provider.create(attributes)
 
-      return response.add_error('invalid data') if result.status.to_i != HTTP_STATUS_CREATED
+      return response.add_error('invalid data') if result.response.status.to_i != HTTP_STATUS_CREATED
 
-      response.add_result(result.json!)
+      response.add_result({ provider: result.provider, body: result.response.json! })
     rescue StandardError => e
       Tracker::Track.notify(e)
 
