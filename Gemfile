@@ -62,6 +62,9 @@ group :development, :test do
   # https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
 
+  # https://github.com/rails/rails-controller-testing
+  gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
+
   # https://github.com/vcr/vcr
   gem 'vcr', '~> 6.2'
 

@@ -130,6 +130,7 @@ RSpec.configure do |config|
   # require 'timecop'
   config.before do |example|
     Timecop.freeze('2023-02-22T8:00:00-03:00') if example.metadata[:timecop]
+    I18n.default_locale = example.metadata[:locale] if example.metadata[:locale]
   end
 
   config.after { Timecop.return }

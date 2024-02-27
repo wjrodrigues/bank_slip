@@ -1,0 +1,11 @@
+<% @bankslips.each do |bankslip| %>
+    <%= render partial: 'bankslips/item', locals: { bankslip: } %>
+<% end %>
+
+<% if @bankslips.empty? %>
+<div class='bg-white rounded-md m-2 p-2 shadow'>
+    <div class="text-center text-lg font-bold w-full">
+        <p class=""><%= t('no_records') %></p>
+    </div>
+</div>
+<% end %>

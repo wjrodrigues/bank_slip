@@ -14,7 +14,8 @@ FactoryBot.define do
 
     trait :overdue do
       status { 'overdue' }
-      expire_at { 3.hours.ago }
+
+      after(:create) { |bankslip| bankslip.update_attribute(:expire_at, 3.hours.ago) }
     end
 
     trait :canceled do
