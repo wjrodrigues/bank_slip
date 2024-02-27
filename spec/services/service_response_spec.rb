@@ -49,7 +49,7 @@ RSpec.describe ServiceResponse, :services do
         expect(response.error).to eq(err)
       end
 
-      it 'returns translated text' do
+      it 'returns translated text', locale: :'pt-BR' do
         response = described_class.new
 
         response.add_error('no_records', translate: true)
