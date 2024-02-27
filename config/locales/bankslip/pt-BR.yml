@@ -21,10 +21,17 @@ pt-BR:
       state: Estado
       neighborhood: Bairro
       address: Rua/Via/Av.
+      create: Criar
+      cancel: Cancelar
 
     form:
-      success_to_success: Salvo com sucesso
+      success_cancel: Cancelado com sucesso
+      success_save: Salvo com sucesso
       invalid_customer: Dados do cliente inválidos
+      new: Novo
+      confirm_cancel: |
+        Esta ação é irreversível!
+        Deseja continuar?
 
     service:
       unavailable_provider: Provedor indisponível
@@ -33,3 +40,6 @@ pt-BR:
       invalid_expire_at: Data vencimento inválida
       invalid_amount: Valor inválido
       invalid_customer: Dados do cliente inválidos
+
+    not_found: Registro não encontrado
+    invalid_status: Status inválido
