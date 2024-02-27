@@ -31,21 +31,23 @@ module Gateway
       end
 
       def payload(params)
+        params.deep_symbolize_keys!
+
         {
-          expire_at: params['expire_at'],
-          amount: Money.new(params['amount']).to_f
+          expire_at: params[:expire_at],
+          amount: Money.new(params[:amount]).to_f
         }.merge(customer_payload(params))
       end
 
       def customer_payload(params)
         {
-          customer_person_name: params['name'],
-          customer_cnpj_cpf: params['document'],
-          customer_state: params['state'],
-          customer_city_name: params['city'],
-          customer_zipcode: params['zipcode'],
-          customer_address: params['address'],
-          customer_neighborhood: params['neighborhood']
+          customer_person_name: params[:name],
+          customer_cnpj_cpf: params[:document],
+          customer_state: params[:state],
+          customer_city_name: params[:city],
+          customer_zipcode: params[:zipcode],
+          customer_address: params[:address],
+          customer_neighborhood: params[:neighborhood]
         }
       end
     end
